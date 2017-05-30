@@ -153,6 +153,10 @@ def helloworld(args):
     """run the 'hello world' program on the Maxine VM"""
     mx.run([join(_vmdir, 'maxvm'), '-cp', mx.classpath('com.oracle.max.tests')] + args + ['test.output.HelloWorld'])
 
+def taleporos(args):
+    """run the taleporos program on the Maxine VM"""
+    mx.run([join(_vmdir, 'maxvm'), '-jar', '/home/taleporos/.jenkins/workspace/MaxineBench/Benchmarks/SPECjvm2008/SPECjvm2008/SPECjvm2008.jar'])
+
 def inspecthelloworld(args):
     """run the 'hello world' program in the Inspector"""
     inspect(['-cp', mx.classpath('com.oracle.max.tests')] + args + ['test.output.HelloWorld'])
@@ -733,6 +737,7 @@ def mx_init(suite):
         'view': [view, '[options]'],
         'vm': [vm, '[options] [class | -jar jarfile]  [args...]'],
         'wikidoc': [wikidoc, '[options]'],
+        'taleporos': [taleporos, '[options]'],
     }
     mx.update_commands(suite, commands)
 
