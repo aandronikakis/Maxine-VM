@@ -155,7 +155,12 @@ def helloworld(args):
 
 def taleporos(args):
     """run the taleporos program on the Maxine VM"""
-    mx.run([join(_vmdir, 'maxvm'), '-jar', '/home/taleporos/.jenkins/workspace/MaxineBench/Benchmarks/SPECjvm2008/SPECjvm2008/SPECjvm2008.jar'])
+    #mx.run([join(_vmdir, 'maxvm'), '-jar', '/home/taleporos/.jenkins/workspace/MaxineBench/Benchmarks/SPECjvm2008/SPECjvm2008/SPECjvm2008.jar'])
+   
+    specjvm2008 = mx.get_env('SPECJVM2008')
+    #mx.run([join(_vmdir, 'maxvm'), '-jar', specjvm2008+'/SPECjvm2008.jar'], cwd=cwd)
+    mx.run([join(_vmdir, 'maxvm'), '-jar', specjvm2008+'/SPECjvm2008.jar'], cwd=specjvm2008)
+
 
 def inspecthelloworld(args):
     """run the 'hello world' program in the Inspector"""
